@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">KumbaraKala</string>
+    <string name="product">Product</string>
+    <string name="enter_name">Enter your name</string>
+    <string name="enter_phone">Enter phone number</string>
+    <string name="generate_card">Generate Benefit Card</string>
+</resources>

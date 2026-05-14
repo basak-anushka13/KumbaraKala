@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "806301201070",
+    "project_id": "kumbarakala-76423",
+    "storage_bucket": "kumbarakala-76423.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:806301201070:android:73b649ef973635e27d733f",
+        "android_client_info": {
+          "package_name": "com.example.kumbarakala"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAluqsixH5jbXr_2TCpr_uT9QNc2bEStIE"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
