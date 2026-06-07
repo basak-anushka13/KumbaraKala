@@ -48,24 +48,40 @@ class MainActivity : AppCompatActivity() {
 
         recyclerView.adapter = adapter
 
-        db.collection("products").get().addOnSuccessListener { result ->
-            for (doc in result) {
+        db.collection("products").get()
+            .addOnSuccessListener { result ->
 
-                val name = doc.getString("name") ?: ""
-                val benefit = doc.getString("benefit") ?: ""
+                android.widget.Toast.makeText(
+                    this,
+                    "Loaded ${result.size()} products",
+                    android.widget.Toast.LENGTH_LONG
+                ).show()
 
-                val image = when (name) {
-                    "Curd Pot" -> R.drawable.curd_pot
-                    "Clay Lamp" -> R.drawable.clay_lamp
-                    "Water Pot" -> R.drawable.water_pot
-                    else -> R.drawable.curd_pot
+                for (doc in result) {
+
+                    val name = doc.getString("name") ?: ""
+                    val benefit = doc.getString("benefit") ?: ""
+
+                    val image = when (name) {
+                        "Curd Pot" -> R.drawable.curd_pot
+                        "Clay Lamp" -> R.drawable.clay_lamp
+                        "Water Pot" -> R.drawable.water_pot
+                        else -> R.drawable.curd_pot
+                    }
+
+                    list.add(Product(name, image, benefit))
                 }
 
-                list.add(Product(name, image, benefit))
+                adapter.notifyDataSetChanged()
             }
+            .addOnFailureListener { e ->
 
-            adapter.notifyDataSetChanged()
-        }
+                android.widget.Toast.makeText(
+                    this,
+                    "Firestore Error: ${e.message}",
+                    android.widget.Toast.LENGTH_LONG
+                ).show()
+            }
 
     }
 }
